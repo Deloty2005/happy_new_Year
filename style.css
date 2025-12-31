@@ -1,0 +1,149 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  color:white;
+  background:
+    linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)),
+    url("bg.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+/* Main container */
+.container{
+  position:absolute;
+  top:30%;
+  width:100%;
+  text-align:center;
+  z-index:2;
+}
+
+/* Title */
+.glow{
+  font-size:3rem;
+  color:#00fffe;
+  text-shadow:0 0 20px #ff0036,0 0 40px #00ff02;
+  animation:pulse 2s infinite;
+}
+
+/* Beat glow when music plays */
+.beat{
+  animation:beatPulse 0.8s infinite alternate;
+}
+@keyframes beatPulse{
+  from{ text-shadow:0 0 20px cyan; }
+  to{ text-shadow:0 0 60px lime; }
+}
+
+/* Input */
+input{
+  margin-top:15px;
+  padding:10px 20px;
+  border-radius:20px;
+  border:none;
+  font-size:16px;
+  outline:none;
+}
+
+/* Button */
+button{
+  margin-top:15px;
+  padding:12px 25px;
+  font-size:15px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(30deg,#fff700,#00ff77);
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+button:hover{ transform:scale(1.1); }
+
+/* Auto typing wish */
+#typingWish{
+  margin-top:15px;
+  font-size:1.2rem;
+  color: greenyellow;
+  min-height:30px;
+}
+
+/* Personal wish */
+#personalWish{
+  margin-top:25px;
+  font-size:2rem;
+  opacity:0;
+  animation:wishAnim 2s forwards;
+}
+
+@keyframes wishAnim{
+  from{ 
+    transform:scale(.5); 
+    opacity:0; 
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+    text-shadow:0 0 15px #ff00f2,0 0 30px #00cbff;
+  }
+}
+
+@keyframes pulse
+{
+  0%,100%{ 
+    transform:scale(1); 
+  }
+  50%{ 
+    transform:scale(1.08); 
+  }
+}
+
+/* Floating emojis */
+@keyframes floatUp
+{
+  to{
+    transform:translateY(-100vh);
+    opacity:0;
+  }
+}
+
+/* Footer */
+.footer{
+  position:fixed;
+  bottom:15px;
+  width:100%;
+  text-align:center;
+  z-index:3;
+}
+.footer-text{
+  font-size:16px;
+  animation:floatGlow 3s infinite;
+}
+.footer-name{
+  color:gold;
+  font-weight:bold;
+  text-shadow:0 0 10px red,0 0 20px orange;
+}
+@keyframes floatGlow
+{
+  0%,100%{ 
+    transform:translateY(0); 
+    opacity:.6; 
+  }
+  50%{ 
+    transform:translateY(-10px); 
+    opacity:1; 
+  }
+}
+
+canvas{
+  position:absolute;
+  top:0;
+  left:0;
+}
